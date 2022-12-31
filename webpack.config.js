@@ -5,8 +5,22 @@ module.exports = {
      filename: 'bundled.js',
     path: path.resolve(__dirname, 'app')
       },
-      mode:'development',
-         watch:true, 
+
+      devServer: {
+        static: {
+          before: function(app, server){
+            server._watch('./app/**/*.html')
+          }
+        },
+        static: {
+          directory: path.join(__dirname, 'app'),
+        },
+        hot: true,
+        port: 9000,
+        host: '0.0.0.0',
+      },
+
+      mode:'development', 
   module: {
     rules: [
       {
@@ -21,6 +35,7 @@ module.exports = {
                 plugins: [
                   [
                     'postcss-import',
+                    'postcss-mixins',
                     'postcss-simple-vars',
                     'postcss-nested',
                     'autoprefixer',
