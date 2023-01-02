@@ -39,6 +39,7 @@ module.exports = {
                     'postcss-simple-vars',
                     'postcss-nested',
                     'autoprefixer',
+                   'postcss-hexrgba',
                     {
                       // Options
                     },

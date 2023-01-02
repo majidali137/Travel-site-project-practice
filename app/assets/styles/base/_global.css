@@ -12,3 +12,6 @@ img{
 a{
     color: $mainOrange;
 }
+html {
+    scroll-behavior: smooth;
+  }
